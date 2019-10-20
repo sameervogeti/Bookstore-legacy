@@ -11,6 +11,11 @@ import java.io.Serializable;
 public class OrderDetail implements Serializable {
     private static final long serialVersionUID = 1L;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(insertable = false, name = "id", nullable = false)
+    private Integer id;
+
     @Column(name = "quantity", nullable = false)
     private Integer quantity;
 

@@ -2,10 +2,15 @@ package com.bookstore.dao;
 
 import com.bookstore.entity.Users;
 
+import javax.persistence.EntityManager;
 import java.util.List;
 
 public class UserDAO extends JpaDAO<Users> implements GenericDAO<Users> {
 
+
+    public UserDAO(EntityManager entityManager) {
+        super(entityManager);
+    }
 
     public Users create(Users users) {
         return super.create(users);

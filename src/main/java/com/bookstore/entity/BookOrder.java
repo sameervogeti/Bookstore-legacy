@@ -18,7 +18,7 @@ public class BookOrder implements Serializable {
     @Column(name = "order_id", insertable = false, nullable = false)
     private Integer orderId;
 
-    @Column(name = "customer_id", nullable = false)
+    @Column(name = "customer_id", nullable = false,insertable = false,updatable = false)
     private Integer customerId;
 
     @Column(name = "order_date", nullable = false)

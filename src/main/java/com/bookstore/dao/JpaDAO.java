@@ -1,10 +1,11 @@
 package com.bookstore.dao;
 
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
 import javax.persistence.EntityManager;
 
-@RequiredArgsConstructor
+@AllArgsConstructor
 public class JpaDAO<T> {
     protected EntityManager entityManager;
 
