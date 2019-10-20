@@ -37,7 +37,7 @@ public class BookOrder implements Serializable {
     private String paymentMethod;
 
     @Column(name = "total", nullable = false)
-    private Float total;
+    private Double total;
 
     @Column(name = "status", nullable = false)
     private String status;

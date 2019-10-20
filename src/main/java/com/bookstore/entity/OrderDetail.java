@@ -20,7 +20,7 @@ public class OrderDetail implements Serializable {
     private Integer quantity;
 
     @Column(name = "subtotal", nullable = false)
-    private Float subtotal;
+    private Double subtotal;
 
     @ManyToOne
     @JoinColumn(name = "order_id", referencedColumnName = "order_id")

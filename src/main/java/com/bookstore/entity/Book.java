@@ -35,7 +35,7 @@ public class Book implements Serializable {
     private byte[] image;
 
     @Column(name = "price", nullable = false)
-    private Float price;
+    private Double price;
 
     @Column(name = "publish_date", nullable = false)
     private Date publishDate;
