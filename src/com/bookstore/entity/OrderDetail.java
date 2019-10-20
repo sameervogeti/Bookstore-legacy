@@ -2,9 +2,7 @@ package com.bookstore.entity;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Data
@@ -13,17 +11,17 @@ import java.io.Serializable;
 public class OrderDetail implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    @Column(name = "order_id")
-    private Integer orderId;
-
-    @Column(name = "book_id")
-    private Integer bookId;
-
     @Column(name = "quantity", nullable = false)
     private Integer quantity;
 
     @Column(name = "subtotal", nullable = false)
     private Float subtotal;
 
+    @ManyToOne
+    @JoinColumn(name = "order_id", referencedColumnName = "order_id")
+    private BookOrder bookOrderByOrderId;
+    @ManyToOne
+    @JoinColumn(name = "book_id", referencedColumnName = "book_id")
+    private Book bookByBookId;
 
 }

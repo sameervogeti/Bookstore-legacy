@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
 
 @Entity
@@ -40,6 +41,12 @@ public class BookOrder implements Serializable {
 
     @Column(name = "status", nullable = false)
     private String status;
+
+    @ManyToOne
+    @JoinColumn(name = "customer_id", referencedColumnName = "customer_id", nullable = false)
+    private Customer customerByCustomerId;
+    @OneToMany(mappedBy = "bookOrderByOrderId")
+    private Collection<OrderDetail> orderDetailsByOrderId;
 
 
 }

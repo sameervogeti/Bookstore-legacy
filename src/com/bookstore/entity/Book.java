@@ -4,7 +4,9 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
+
 
 @Entity
 @Data
@@ -41,8 +43,14 @@ public class Book implements Serializable {
     @Column(name = "last_update_time", nullable = false)
     private Date lastUpdateTime;
 
-    @Column(name = "category_id", nullable = false)
-    private Integer categoryId;
+    @ManyToOne
+    @JoinColumn(name = "category_id", referencedColumnName = "category_id", nullable = false)
+    private Category categoryByCategoryId;
+    @OneToMany(mappedBy = "bookByBookId")
+    private Collection<OrderDetail> orderDetailsByBookId;
+    @OneToMany(mappedBy = "bookByBookId")
+    private Collection<Review> reviewsByBookId;
+
 
 
 }

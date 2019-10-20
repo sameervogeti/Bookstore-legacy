@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Collection;
 
 @Table(name = "category")
 @Data
@@ -18,6 +19,9 @@ public class Category implements Serializable {
 
     @Column(name = "name", nullable = false)
     private String name;
+
+    @OneToMany(mappedBy = "categoryByCategoryId")
+    private Collection<Book> booksByCategoryId;
 
 
 }

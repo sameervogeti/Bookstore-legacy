@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
 
 @Data
@@ -43,6 +44,11 @@ public class Customer implements Serializable {
 
     @Column(name = "register_date", nullable = false)
     private Date registerDate;
+
+    @OneToMany(mappedBy = "customerByCustomerId")
+    private Collection<BookOrder> bookOrdersByCustomerId;
+    @OneToMany(mappedBy = "customerByCustomerId")
+    private Collection<Review> reviewsByCustomerId;
 
 
 }
